@@ -1,0 +1,179 @@
+<=========================================================>
+<=================>    BUG LOG HEADER   <=================>
+<=========================================================>
+Assignment:
+    MP2
+CheckPoint:
+    CP1
+CreateTime:
+    2022.09.19
+
+<--------------------------------------------------------->
+                          BUG 1                          
+<--------------------------------------------------------->
+Time:
+    2022.09.20
+Creator:
+    Aryan Gupta
+Description:
+    When traversing the image sideways, the picture started tearing and copying the wrong side of the image 
+    (when traversing left, strips of the right side of the image would show up and vice versa)
+Solution:
+    I realized for p_off, I was using show_x like in draw horizontal line, but show_x is not being updated,
+    x is being updated in draw_vert_line, thus when I changed it to x, the picture traversed smoothly
+
+<--------------------------------------------------------->
+                          BUG 2                          
+<--------------------------------------------------------->
+Time:
+    2022.09.28
+Creator:
+    Aryan Gupta
+Description:
+    When I tried compiling my status bar it originally was fully black with flashing random color values
+Solution:
+    I set my status bar as null instead of spaces initially
+
+<--------------------------------------------------------->
+                          BUG 3                          
+<--------------------------------------------------------->
+Time:
+    2022.09.28
+Creator:
+    Aryan Gupta
+Description:
+    Status bar was fully black
+Solution:
+    Found out I set my text color the same as my status bar
+
+<--------------------------------------------------------->
+                          BUG 4                          
+<--------------------------------------------------------->
+Time:
+    2022.09.28
+Creator:
+    Aryan Gupta
+Description:
+    Status bar wouldn't show any letters 
+Solution:
+    Had to make sure to reinitialize my bitmask in my text to graphics loop, still didnt fix :(
+
+<--------------------------------------------------------->
+                          BUG 5                          
+<--------------------------------------------------------->
+Time:
+    2022.09.28
+Creator:
+    Aryan Gupta
+Description:
+    Status bar still doesnt show letter but some pixels are text colored
+Solution:
+    Realized that when I called my draw status bar function I put the parameters in the wrong location
+
+<--------------------------------------------------------->
+                          BUG 6                          
+<--------------------------------------------------------->
+Time:
+    2022.09.28
+Creator:
+    Aryan Gupta
+Description:
+    My room name was replaced by my text, and the input text was centered
+Solution:
+    My logic had a case to remove text if it overlapped, which shouldn't be an issue if you positioned the text right, but I did not,
+    however I fixed the offset of the text and removed the logic.
+
+<--------------------------------------------------------->
+                          BUG 7                          
+<--------------------------------------------------------->
+Time:
+    2022.09.29
+Creator:
+    Aryan Gupta
+Description:
+    My text was shifted one pixel to the left
+Solution:
+    I made the text string 41 size since my logic was 1-indexed
+
+<--------------------------------------------------------->
+                          BUG 8
+<--------------------------------------------------------->
+Time:
+    2022.09.29
+Creator:
+    Aryan Gupta
+Description:
+    My text was shifted one pixel above
+Solution:
+    I put a row of pixels above the text
+
+<--------------------------------------------------------->
+                          BUG 9                         
+<--------------------------------------------------------->
+Time:
+    2022.04.10
+Creator:
+    Aryan Gupta
+Description:
+    My picture was cropped at the bottom
+Solution:
+    Had to change the image height to 182 to accomodate for the status bar
+
+<--------------------------------------------------------->
+                          BUG 10
+<--------------------------------------------------------->
+
+Description:
+    My tux emulator did not display any leds
+Solution:
+    My button input was not being read since I never was calling copy to user
+
+<--------------------------------------------------------->
+                          BUG 11
+<--------------------------------------------------------->
+Time:
+    
+Creator:
+    Aryan Gupta
+
+Description:
+    My leds were not displaying the correct values
+Solution:
+    I was not using the correct bitmask for the leds
+
+<--------------------------------------------------------->
+                          BUG 12
+<--------------------------------------------------------->
+Time:
+    
+Creator:
+    Aryan Gupta
+
+Description:
+    My leds were set to "OOPS" after everytime I pressed a button
+Solution:
+    My index for my seven segment display array was passing in character as index for an array
+    so I had to convert the hex value to an int and index my array through that
+
+<--------------------------------------------------------->
+                          BUG 13
+<--------------------------------------------------------->
+Time:
+Creator
+    Aryan Gupta
+Description:
+    My tux was being frozen after pressing a button
+Solution:
+    I was passing in the wrong parameters for copy to user
+
+<--------------------------------------------------------->
+                          BUG 14
+<--------------------------------------------------------->
+Time:
+Creator
+    Aryan Gupta
+Description:
+    My room would not change which the tux controller but my status bar would update
+Solution:
+    I made a global variable to keep track of which room I entered
+
